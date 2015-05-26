@@ -94,13 +94,24 @@ void reverseWordsInString (std::string& data){
 }
 
 void reverse (char* word, int start, int end){
-	char temp;
 	for(; start < end; start++, end--){
-		temp = word[start];
+		char temp = word[start];
 		word[start] = word[end];
 		word[end] = temp;
 	}
 }
+
+//void reverse(char *str, int start, int end)
+//{
+//	char c = str[start];
+//	str[start] = str[end];
+//	str[end] = c;
+//	
+//	start++;
+//	end--;
+//	if (start < end)
+//		reverse(str, start, end);
+//}
 
 void reverseWordsInString(char *data)
 {
@@ -108,7 +119,7 @@ void reverseWordsInString(char *data)
 	int index = 0;
 	int start = 0;
 	
-	while(index != length){
+	while(index <= length){
 		if(data[index] == '\0' || data[index]== ' '){
 			reverse(data, start, index-1);
 			start = index+1;
@@ -217,8 +228,7 @@ void displayBits(int value)
 			cout<<" ";
 		}
 		
-		char ret = (value & displayMask ? '1':'0');
-		cout<<ret;
+		cout<< (value & displayMask ? '1':'0');
 		value <<= 1;
 	}
 	cout<<endl;
@@ -297,7 +307,9 @@ int max(int x,int y)
 }
 
 int main(int argc, const char * argv[]) {
-	
+	string str = "Hello Jee";
+	reverseWordsInString(const_cast<char*>(str.c_str()));
+	cout<<str<<endl;
 //	int num = 15;
 //	while(num != 0){
 //		num >>= 1;
@@ -399,14 +411,14 @@ int main(int argc, const char * argv[]) {
 //		cout << "It's false!" << endl;
 //
 //
-//	cout << "This lambda returns " <<
-//	[] (int x, int y) -> int {
-//		if(x > 5)
-//			return x + y;
-//		else if (y < 2)
-//			return x - y;
-//		else
-//			return x * y;
-//	}<< endl;
+	cout << "This lambda returns " <<
+	[] (int x, int y) -> int {
+		if(x > 5)
+			return x + y;
+		else if (y < 2)
+			return x - y;
+		else
+			return x * y;
+	}(5, 9)<< endl;
 	return 0;
 }
