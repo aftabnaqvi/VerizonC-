@@ -306,6 +306,11 @@ int max(int x,int y)
 	return(x-X);
 }
 
+void showNumbers(int n){
+    for(int i=0; i<n; i++)
+        cout<<i<<endl;
+}
+
 int main(int argc, const char * argv[]) {
 	string str = "Hello Jee";
 	reverseWordsInString(const_cast<char*>(str.c_str()));
