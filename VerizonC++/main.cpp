@@ -44,6 +44,24 @@ bool detectLoop(struct node *list)
 	return false;
 }
 
+//remove duplicates from a sorted linked list: http://www.geeksforgeeks.org/remove-duplicates-from-a-sorted-linked-list/ [amazon asked me this]
+
+void removeDuplicates(node* head){
+    node* curr = head;
+    if(curr == NULL)
+        return;
+    
+    while (curr->next != NULL){
+        if(curr->data == curr->next->data){
+            // delete the node.
+            node* temp = curr->next->next;
+            delete curr->next->next;
+            curr->next = temp;
+        } else {
+            curr = curr->next;
+        }
+    }
+}
 
 /* Function to get no of set bits in binary
  representation of passed binary no. */
@@ -311,10 +329,89 @@ void showNumbers(int n){
         cout<<i<<endl;
 }
 
+bool isEmailValid(const char* email){
+    if(email == NULL)
+        return false;
+    
+    if(!isalpha(email[0]))
+        return false;
+    
+    int atIndex = 0;
+    int dotIndex = 0;
+    int index = 0;
+    while(email[index] != '\0'){
+        if(email[index] == '@'){
+            atIndex = index;
+        }
+        
+        if(email[index] == '.'){
+                dotIndex = index;
+        }
+        
+        //email++;
+        index++;
+    }
+    
+    if( (atIndex == 0 || dotIndex == 0) || dotIndex < atIndex){
+        return false;
+    }
+    
+    return (dotIndex<index-1);
+}
+
+#include <map>
+map<char, bool> myMap;
+
+bool isValidChar(char value){
+    
+    
+    return true;
+}
+
+#include "MoreAlogs.hpp"
+
 int main(int argc, const char * argv[]) {
-	string str = "Hello Jee";
-	reverseWordsInString(const_cast<char*>(str.c_str()));
-	cout<<str<<endl;
+    
+    vector<int> input;
+    input.push_back(2);
+    input.push_back(9);
+    input.push_back(5);
+    input.push_back(3);
+    input.push_back(1);
+    input.push_back(-1);
+    input.push_back(100);
+    input.push_back(4);
+    
+    unique_ptr<vector<int>> data;
+    
+    data = getTwoMinimum(input);
+    
+    if(data != nullptr)
+        for(auto i : *data){
+            cout<<"min: "<<i<<endl;
+        }
+    
+    cout<<fibRecursive(5)<<endl;
+    cout<<fibn(5)<<endl;
+    
+    cout<<fac(5)<<endl;
+    cout<<factorial(5)<<endl;
+    
+    cout<<countBits(7)<<endl;
+    
+//    myMap['%'] = 0;
+//    myMap['#'] = 0;
+//    myMap['%'] = 0;
+//    myMap['%'] = 0;
+//    
+//    char data[100] = "aft.ab@aftab.com";
+//    bool res = isEmailValid(data);
+//    cout<<"email: "<<res<<endl;
+//    
+//    
+//	string str = "Hello Jee";
+//	reverseWordsInString(const_cast<char*>(str.c_str()));
+//	cout<<str<<endl;
 //	int num = 15;
 //	while(num != 0){
 //		num >>= 1;
@@ -427,3 +524,164 @@ int main(int argc, const char * argv[]) {
 	}(5, 9)<< endl;
 	return 0;
 }
+
+
+
+
+
+//#include <iostream>
+//#include <string.h>
+//using namespace std;
+//
+//char* reverse(char *data){
+//    int start = 0;
+//    int end = strlen(data)-1;
+//    
+//    while (start<end){
+//        char temp = data[start];
+//        data[start++] = data[end];
+//        data[end--] = temp;
+//        
+//    }
+//    
+//    return data;
+//}
+//
+//char* reverse(char *data, int start, int end){
+//    if(start>=end)
+//        return data;
+//    
+//    while (start<end){
+//        char temp = data[start];
+//        data[start++] = data[end];
+//        data[end--] = temp;
+//    }
+//    
+//    return data;
+//}
+//
+//void reverseWordsInString(char* data){
+//    int wStart = 0;
+//    int index = 0;
+//    int length = strlen(data);
+//    
+//    while(index <= length ){
+//        if(data[index] == ' ' || data[index] == NULL){
+//            reverse(data, wStart, index-1);
+//            wStart = index+1;
+//        }
+//        
+//        index++;
+//    }
+//}
+//
+//int countBits(int num){
+//    int count = 0;
+//    
+//    while(num > 0){
+//        count += num & 1;
+//        num >>= 1;
+//    }
+//    
+//    return count;
+//}
+//
+//bool isPalindrome(char* data){
+//    int length = strlen(data)-1;
+//    cout<<"length = " << length <<endl;
+//    for(int i=0; i<=length/2; i++){
+//        if(data[i] != data[length-i])
+//            return false;
+//    }
+//    
+//    return true;
+//}
+//
+//// /* Link list node */
+//// struct node
+//// {
+////     int data;
+////     struct node* next;
+//// };
+//
+//// /* The function removes duplicates from a sorted list */
+//// void removeDuplicates(struct node* head)
+//// {
+////     /* Pointer to traverse the linked list */
+////     struct node* current = head;
+//
+////     /* Pointer to store the next pointer of a node to be deleted*/
+////     struct node* next_next;
+//
+////     /* do nothing if the list is empty */
+////     if (current == NULL)
+////       return;
+//
+////     /* Traverse the list till last node */
+////     while (current->next != NULL)
+////     {
+////       /* Compare current node with next node */
+////       if (current->data == current->next->data)
+////       {
+////           /* The sequence of steps is important*/
+////           next_next = current->next->next;
+////           free(current->next);
+////           current->next = next_next;
+////       }
+////       else /* This is tricky: only advance if no deletion */
+////       {
+////           current = current->next;
+////       }
+////     }
+//// }
+//
+//node* reverse(node* head){
+//    node* curr = head;
+//    node* next = NULL;
+//    node* prev = NULL;
+//    
+//    while(curr != NULL){
+//        next = curr->next;
+//        curr->next = prev;
+//        prev = curr;
+//        curr = next;
+//    }
+//    
+//    return prev;
+//}
+//
+//
+//bool isEmailValid(const char* email){
+//    if(email == NULL)
+//        return false;
+//    
+//    if(!isalpha(email[0]))
+//        return false;
+//    
+//    int atIndex = 0;
+//    int dotIndex = 0;
+//    int index = 0;
+//    while(email != NULL){
+//        if(*email == '@'){
+//            atIndex = index;
+//        }
+//        
+//        if(*email == '.'){
+//            dotIndex = index;
+//            if(dotIndex < atIndex)
+//                return false;
+//        }
+//        
+//        
+//        index++;
+//    }
+//    
+//    if( (atIndex == 0 || dotIndex == 0) || dotIndex < atIndex){
+//        return false;
+//    }
+//    
+//    return (dotIndex<index-1);
+//}
+
+
+

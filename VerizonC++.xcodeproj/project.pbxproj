@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E86387EB1F83493000CC1DD6 /* MoreAlogs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E86387E91F83493000CC1DD6 /* MoreAlogs.cpp */; };
 		FAC191191B1420F10071FB42 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAC191181B1420F10071FB42 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E86387E91F83493000CC1DD6 /* MoreAlogs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MoreAlogs.cpp; sourceTree = "<group>"; };
+		E86387EA1F83493000CC1DD6 /* MoreAlogs.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MoreAlogs.hpp; sourceTree = "<group>"; };
 		FAC191151B1420F10071FB42 /* VerizonC++ */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "VerizonC++"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC191181B1420F10071FB42 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				FAC191181B1420F10071FB42 /* main.cpp */,
+				E86387E91F83493000CC1DD6 /* MoreAlogs.cpp */,
+				E86387EA1F83493000CC1DD6 /* MoreAlogs.hpp */,
 			);
 			path = "VerizonC++";
 			sourceTree = "<group>";
@@ -119,6 +124,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAC191191B1420F10071FB42 /* main.cpp in Sources */,
+				E86387EB1F83493000CC1DD6 /* MoreAlogs.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +241,7 @@
 				FAC1911E1B1420F10071FB42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
