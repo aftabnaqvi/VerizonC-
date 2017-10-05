@@ -368,6 +368,44 @@ bool isValidChar(char value){
     return true;
 }
 
+// two sum.. problem...
+class Solution {
+public:
+    vector<int> twoSum(const vector<int>& nums, int target) {
+        vector<int> res;
+        std::map<int, int> numsMap;
+        
+        auto size = nums.size();
+        for(int i=0; i<size; ++i){
+            auto it = numsMap.find(nums[i]);
+            if( it != numsMap.end()){
+                res.push_back(min(i, it->second));
+                res.push_back(max(i, it->second));
+                return res;
+            } else {
+                numsMap.insert(std::make_pair(target-nums[i], i));
+            }
+        }
+        
+        return res;
+    }
+    
+
+// max profit in stocks..
+    int maxProfit(vector<int>& prices) {
+        int maxPro = 0;
+        int minPrice = 100000;
+        
+        for(int i=0; i<prices.size(); i++){
+            minPrice = min(minPrice, prices[i]);
+            maxPro = max(maxPro, prices[i] - minPrice);
+        }
+        
+        return maxPro;
+    }
+
+};
+
 #include "MoreAlogs.hpp"
 
 int main(int argc, const char * argv[]) {
