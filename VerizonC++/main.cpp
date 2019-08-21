@@ -89,6 +89,28 @@ void reverse (std::string& data){
 	}
 }
 
+int countWords(string& words){
+    int length = words.length();
+    if(length == 0)
+        return 0;
+    
+    int i = 0;
+    while(words[i] == ' ')
+        ++i;
+    
+    while(words[length--] == ' ')
+        --length;
+    int count = 0;
+    
+    while(words[i] != '\0'){
+        if( (words[i] != ' ')  && ((words[i+1] == ' ') || (words[i+1] == '\0')) )
+            ++count;
+        ++i;
+    }
+    
+    return count;
+}
+
 void reverse (string::iterator wordStart, string::iterator wordEnd){
 	char temp;
 	for(; wordStart < wordEnd; wordStart++, wordEnd--){
