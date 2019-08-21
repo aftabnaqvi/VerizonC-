@@ -61,7 +61,27 @@ int countBits(int number){
     return count;
 }
 
+/* Function to reverse the linked list */
+void reverseLInkedList() { 
+    // Initialize current, previous and 
+    // next pointers 
+    Node* current = head; 
+    Node* prev = NULL, 
+    Node* next = NULL; 
 
+    while (current != NULL) { 
+        // Store next 
+        next = current->next; 
+
+        // Reverse current node's pointer 
+        current->next = prev; 
+
+        // Move pointers one position ahead. 
+        prev = current; 
+        current = next; 
+    } 
+    head = prev; 
+} 
 
 std::unique_ptr<std::vector<int>> getTwoMinimum(const std::vector<int> &vec){
     if(vec.size() < 2){
