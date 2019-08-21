@@ -13,6 +13,29 @@ using namespace std;
 #include <vector>
 
 
+/* Function to reverse the linked list */
+void reverseLInkedList() { 
+    // Initialize current, previous and 
+    // next pointers 
+    Node* current = head; 
+    Node* prev = NULL, 
+    Node* next = NULL; 
+
+    while (current != NULL) { 
+        // Store next 
+        next = current->next; 
+
+        // Reverse current node's pointer 
+        current->next = prev; 
+
+        // Move pointers one position ahead. 
+        prev = current; 
+        current = next; 
+    } 
+    head = prev; 
+} 
+
+
 /* Link list node */
 struct node
 {
